@@ -20,6 +20,7 @@ if __name__=='__main__':
     
     import os
     app_dir = os.path.dirname(__file__)
+    root_dir = os.path.dirname(app_dir)
     base_dir = app_dir + "/data"
     os.makedirs(base_dir, exist_ok=True)
 
