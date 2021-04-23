@@ -104,3 +104,8 @@ venv.bak/
 .mypy_cache/
 
 .vscode
+ipynb_checkpoints
+checkpoints
+ 
+data/BIPED/edges/edge_maps/train/rgbr/aug/
+data/BIPED/edges/imgs/train/rgbr/aug/

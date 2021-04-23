@@ -44,7 +44,7 @@ def save_image_batch_to_disk(tensor, output_dir, file_names, img_shape=None, arg
             tensor, tensor2 = tensor
             fuse_name = 'fusedCH'
             av_name='avgCH'
-            is_2tensors=True
+            is_2tensors=True # noqa:F841
             edge_maps2 = []
             for i in tensor2:
                 tmp = torch.sigmoid(i).cpu().detach().numpy()

@@ -5,7 +5,7 @@ Dense Extreme Inception Network: Towards a Robust CNN Model for Edge Detection *
 which can be download in: https://arxiv.org/pdf/1909.01955.pdf
 """
 from os.path import basename
-from data_augmentation import augment_data
+from MBIPED.data_augmentation import augment_data
 
 def main(dataset_dir):
     augment_both = True  # to augment the RGB and target (edge_map) image at the same time
@@ -20,8 +20,8 @@ if __name__=='__main__':
     
     import os
     app_dir = os.path.dirname(__file__)
-    root_dir = os.path.dirname(app_dir)
-    base_dir = app_dir + "/data"
-    os.makedirs(base_dir, exist_ok=True)
+    #root_dir = os.path.dirname(app_dir)
+    data_dir = app_dir + "/data"
+    os.makedirs(data_dir, exist_ok=True)
 
-    main(dataset_dir=base_dir)
+    main(dataset_dir=data_dir)

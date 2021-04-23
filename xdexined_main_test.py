@@ -137,5 +137,6 @@ def main_train(args):
 if __name__ == '__main__':
     args = parse_args()
 
-    args.is_testing = False
+    args.is_testing = True
+    args.input_dir = args.input_dir.replace("../../dataset/", "./data/")
     main_train(args)

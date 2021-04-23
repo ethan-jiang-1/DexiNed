@@ -409,8 +409,7 @@ def split_data(data_dir,augment_both=True):
         cv.imwrite(os.path.join(x_p2_dir,x_list[i]), x_tmp2)
 
         if augment_both:
-            gt_tmp = cv.imread(os.path.join(
-            os.path.join(gt_dir, 'real'), gt_list[i]))
+            gt_tmp = cv.imread(os.path.join(os.path.join(gt_dir, 'real'), gt_list[i]))
             gt_tmp1 = gt_tmp[:, 0:img_height]
             gt_tmp2 = gt_tmp[:, img_width - img_height:img_width]
             cv.imwrite(os.path.join(gt_p1_dir, gt_list[i]), gt_tmp1)

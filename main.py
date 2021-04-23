@@ -128,7 +128,7 @@ def test(checkpoint_path, dataloader, model, device, output_dir, args):
         for batch_id, sample_batched in enumerate(dataloader):
             images = sample_batched['images'].to(device)
             if not args.test_data == "CLASSIC":
-                labels = sample_batched['labels'].to(device)
+                labels = sample_batched['labels'].to(device) # noqa:F841
             file_names = sample_batched['file_names']
             image_shape = sample_batched['image_shape']
             print(f"input tensor shape: {images.shape}")
@@ -166,7 +166,7 @@ def testPich(checkpoint_path, dataloader, model, device, output_dir, args):
         for batch_id, sample_batched in enumerate(dataloader):
             images = sample_batched['images'].to(device)
             if not args.test_data == "CLASSIC":
-                labels = sample_batched['labels'].to(device)
+                labels = sample_batched['labels'].to(device) # noqa:F841
             file_names = sample_batched['file_names']
             image_shape = sample_batched['image_shape']
             print(f"input tensor shape: {images.shape}")
@@ -202,7 +202,7 @@ def parse_args():
 
     TEST_DATA = DATASET_NAMES[parser.parse_args().choose_test_data] # max 8
     data_inf = dataset_info(TEST_DATA, is_linux=IS_LINUX)
-    test_dir = data_inf['data_dir']
+    test_dir = data_inf['data_dir'] # noqa:F841
     is_testing = True # current test _bdcnlossNew256-sd7-1.10.4p5
 
     # Training settings
