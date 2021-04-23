@@ -1,0 +1,3 @@
+[flake8]
+ignore = E501 E302 E128 W293 W291 E265 W504 E402 W391 E266 E241 E226 E117 E251 E111 E126 E114, E231, E702, E261, E225, F401, E262, W292,  E127, E741, E722
+exclude = checkpoints data results img __pycache__
