@@ -3,7 +3,9 @@ from __future__ import print_function
 
 import argparse
 import os
-import time, platform
+import time
+import platform
+import numpy as np
 
 import cv2
 import torch
@@ -11,7 +13,8 @@ import torch.optim as optim
 from torch.utils.data import DataLoader
 
 from datasets import DATASET_NAMES, BipedDataset, TestDataset, dataset_info
-from losses import *
+#from losses import *
+from losses import bdcn_loss2
 from model import DexiNed
 from utils import (image_normalization, save_image_batch_to_disk,
                    visualize_result)
@@ -25,7 +28,7 @@ def train_one_epoch(epoch, dataloader, model, criterion, optimizer, device,
     # Put model in training mode
     model.train()
     # l_weight = [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1.1]  # for bdcn ori loss
-     # before [0.6,0.6,1.1,1.1,0.4,0.4,1.3] [0.4,0.4,1.1,1.1,0.6,0.6,1.3],[0.4,0.4,1.1,1.1,0.8,0.8,1.3]
+    # before [0.6,0.6,1.1,1.1,0.4,0.4,1.3] [0.4,0.4,1.1,1.1,0.6,0.6,1.3],[0.4,0.4,1.1,1.1,0.8,0.8,1.3]
     l_weight = [0.7,0.7,1.1,1.1,0.3,0.3,1.3] # for bdcn loss theory 3 before the last 1.3 0.6-0..5
     # l_weight = [[0.05, 2.], [0.05, 2.], [0.05, 2.],
     #             [0.1, 1.], [0.1, 1.], [0.1, 1.],
@@ -401,7 +404,7 @@ def main(args):
     # Main training loop
     seed=1021
     for epoch in range(ini_epoch,args.epochs):
-        if epoch%7==0:
+        if epoch % 7==0:
 
             seed = seed+1000
             np.random.seed(seed)

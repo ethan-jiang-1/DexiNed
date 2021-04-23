@@ -194,11 +194,9 @@ def visualize_result(imgs_list, arg):
         # print(i,tmp.shape)
     img = data_list[0]
     if n_imgs % 2 == 0:
-        imgs = np.zeros((img.shape[0] * 2 + 10, img.shape[1]
-                         * (n_imgs // 2) + ((n_imgs // 2 - 1) * 5), 3))
+        imgs = np.zeros((img.shape[0] * 2 + 10, img.shape[1] * (n_imgs // 2) + ((n_imgs // 2 - 1) * 5), 3))
     else:
-        imgs = np.zeros((img.shape[0] * 2 + 10, img.shape[1]
-                         * ((1 + n_imgs) // 2) + ((n_imgs // 2) * 5), 3))
+        imgs = np.zeros((img.shape[0] * 2 + 10, img.shape[1] * ((1 + n_imgs) // 2) + ((n_imgs // 2) * 5), 3))
         n_imgs += 1
 
     k = 0
